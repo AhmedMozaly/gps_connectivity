@@ -27,6 +27,13 @@ class GpsConnectivityBroadcastReceiver(private val context: Context, private val
     }
 
     override fun onCancel(arguments: Any?) {
-        context.unregisterReceiver(this)
+        // handel: java.lang.IllegalArgumentException: Receiver not registered
+        try{
+            if (context != null) {
+                context.unregisterReceiver(this)
+            }
+        }catch (Exception e){
+            // already unregistered
+        }
     }
 }
