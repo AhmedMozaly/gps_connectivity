@@ -32,7 +32,7 @@ class GpsConnectivityBroadcastReceiver(private val context: Context, private val
             if (context != null) {
                 context.unregisterReceiver(this)
             }
-        }catch (Exception e){
+        }catch (e: Exception){
             // already unregistered
         }
     }
